@@ -20,14 +20,14 @@ import {
   FaBars,
   FaArrowLeft,
 } from "react-icons/fa";
-import QRCodeGenerator from "./components/QRCodeGenarator";
-import IPAddressFinder from "./components/IPAddressFinder";
-import MovieSearchEngine from "./components/MovieSearchEngine";
-import TodoApp from "./components/TodoApp";
-import QuizApp from "./components/QuizApp";
-import LanguageTranslator from "./components/LanguageTranslator";
-import Login from "./components/Login";
-import "./App.css";
+import QRCodeGenerator from "./components/pages/QRCodeGenerator";
+import IPAddressFinder from "./components/pages/IPAddressFinder";
+import MovieSearchEngine from "./components/pages/MovieSearchEngine";
+import TodoApp from "./components/pages/TodoApp";
+import QuizApp from "./components/pages/QuizApp";
+import LanguageTranslator from "./components/pages/LanguageTranslator";
+import Login from "./components/pages/Login";
+// import "./App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 // Estiliza o contêiner principal do aplicativo.
