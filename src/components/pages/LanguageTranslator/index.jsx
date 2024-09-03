@@ -1,29 +1,21 @@
-import { useState } from 'react'; // Importa o hook useState do React
-import axios from 'axios'; // Importa a biblioteca axios para fazer requisições HTTP
-
+import { useState } from 'react';
+import { translateService } from '../../../services/Translator'
 import { Container, Title, Label, Select, Input, Button, TranslatedText } from './style';
 
-// Componente principal LanguageTranslator
 const LanguageTranslator = () => {
-  const [text, setText] = useState(''); // Define o estado para o texto a ser traduzido
-  const [translatedText, setTranslatedText] = useState(''); // Define o estado para o texto traduzido
-  const [sourceLang, setSourceLang] = useState('en'); // Define o estado para a língua de origem
-  const [targetLang, setTargetLang] = useState('es'); // Define o estado para a língua de destino
+  const [text, setText] = useState('');
+  const [translatedText, setTranslatedText] = useState('');
+  const [sourceLang, setSourceLang] = useState('en');
+  const [targetLang, setTargetLang] = useState('es');
 
-  // Função para traduzir o texto
   const translateText = async () => {
     try {
-      const response = await axios.get('https://api.mymemory.translated.net/get', {
-        params: {
-          q: text, // Texto a ser traduzido
-          langpair: `${sourceLang}|${targetLang}`, // Par de línguas para tradução
-        },
-      });
-      setTranslatedText(response.data.responseData.translatedText); // Armazena o texto traduzido no estado translatedText
+      const translate = await translateService(text, sourceLang, targetLang)
+      setTranslatedText(translate);
     } catch (error) {
-      console.error("Error translating text:", error); // Exibe um erro no console em caso de falha
+      console.error("Error translating text:", error);
     }
-  };
+  }
 
   return (
     <Container>
@@ -52,14 +44,14 @@ const LanguageTranslator = () => {
       </div>
       <Input
         type="text"
-        value={text} // Valor do campo de entrada é ligado ao estado text
-        onChange={(e) => setText(e.target.value)} // Atualiza o estado text conforme o usuário digita
-        placeholder="Enter text to translate" // Placeholder do campo de entrada
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter text to translate"
       />
-      <Button onClick={translateText}>Translate</Button> {/* Botão que chama a função translateText quando clicado */}
-      {translatedText && <TranslatedText>{translatedText}</TranslatedText>} {/* Condicional que exibe o texto traduzido se translatedText não for vazio */}
+      <Button onClick={translateText}>Translate</Button>
+      {translatedText && <TranslatedText>{translatedText}</TranslatedText>}
     </Container>
   );
 };
 
-export default LanguageTranslator; // Exporta o componente LanguageTranslator como padrão
+export default LanguageTranslator;
