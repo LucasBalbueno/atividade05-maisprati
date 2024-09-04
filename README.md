@@ -1,7 +1,7 @@
 <h1> MULTI-APP </h1>
 
 <p>
-Esse MultiApp foi desenvolvido durantes as aulas de React da +PraTi e foi deixado como desafio implementações de melhorias em seu código. Melhorando estruturas, tratamento de erros e funcionalidades usando react, axios, consumos de APIs e outras habilidades essenciais para o desenvolvimento front-end.
+Esse MultiApp foi desenvolvido durante as aulas de React da +PraTi e foi deixado como desafio implementações de melhorias em seu código. Melhorando estruturas, tratamento de erros e funcionalidades usando react, axios, consumos de APIs e outras habilidades essenciais para o desenvolvimento front-end.
 </p>
 <br>
 
@@ -37,15 +37,18 @@ Esse MultiApp foi desenvolvido durantes as aulas de React da +PraTi e foi deixad
 ## Como executar o Projeto
 
 1. Clone o repositório do GitHub para uma pasta local em seu computador;
+```
+git clone https://github.com/LucasBalbueno/multi-app.git
+```
 
-2. Abra o projeto em uma IDE de sua preferencia;
+2. Abra o projeto em uma IDE de sua preferência;
 
-3. Abra o terminal e instale todas as dependências do projeto
+3. Abra o terminal e instale todas as dependências do projeto:
 ```
 npm install
 ```
  
- 4. Ainda no terminal execute o script para o vite rodar o projeto localmente;
+ 4. Ainda no terminal, execute o script para o Vite rodar o projeto localmente:
  ```
  npm run dev
 ```
