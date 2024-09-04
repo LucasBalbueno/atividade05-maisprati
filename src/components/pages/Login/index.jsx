@@ -1,22 +1,25 @@
 import { useState } from 'react';
-
+import { login } from '../../../services/AuthService/AuthLogin';
 import { LoginContainer, LoginForm, Input, Button } from './style';
 
 const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ errorValidation ] = useState('Usuário ou senha incorretos!');
 
   const handleSubmit = (e) => {
     try {
       e.preventDefault();
-  
-      if (username === 'admin' && password === 'password') {
+      
+      const isLoggedIn = login(username, password);
+      
+      if (isLoggedIn) {
         onLogin();
-      } else {
-        alert('Credenciais Inválidas, tente novamente!');
+      } else if (username !== 'admin' || password !== 'password') {
+          alert(errorValidation);
       }
-    } catch (error){
-        console.error('Erro na autenticação do usuário:', error);
+    } catch (error) {
+      console.error('Usuário não autenticado');
     }
   };
 

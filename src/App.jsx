@@ -19,6 +19,8 @@ import { Footer } from './styles/Footer'
 import { NavBar, NavBarToggle } from './styles/NavBar'
 import { CarouselContainer, CarouselItem, CustomCarousel } from './styles/Carousel'
 
+import { logout } from "./services/AuthService/AuthLogin";
+
 // Define o componente principal do aplicativo.
 const App = () => {
   // Cria estados para autenticação, visibilidade da barra de navegação, componente atual, e índice do carrossel.
@@ -45,6 +47,7 @@ const App = () => {
   const handleLogout = () => {
     setIsAuthenticated(false);
     navigate("/");
+    logout()
   };
 
   // Alterna a visibilidade da barra de navegação.
